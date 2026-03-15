@@ -95,4 +95,4 @@ Here is a look at the SpectreData dashboard, built with React and Tailwind CSS.
 ![Single Search](image/SEARCH.png)
 
 ### High-Speed Bulk Multi-Threaded Hunter
-![Bulk Hunter](image/SEARCH.png)
+![Bulk Hunter](image/video.png)
