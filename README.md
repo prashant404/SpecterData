@@ -83,3 +83,16 @@ The dashboard will be available at http://localhost:3000.
 [ ] Scheduled Scrapes: Cron-job functionality to auto-scrape specific products every 24 hours.
 
 [ ] Advanced AI Parsing: Using LLMs to identify product selectors on unknown e-commerce layouts.
+
+## 📸 Interface Showcase
+
+Here is a look at the SpectreData dashboard, built with React and Tailwind CSS.
+
+### Home
+![Home](image/Home'.png)
+
+## Single Search
+![Single Search](image/SEARCH.png)
+
+### High-Speed Bulk Multi-Threaded Hunter
+![Bulk Hunter](image/SEARCH.png)
