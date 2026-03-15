@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* --- GLOBAL RESET (Fixes the overlapping bug) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* CRITICAL: Prevents padding from exploding widths */
+}
+
+:root {
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --dark: #0f172a;
+  --dark-hover: #1e293b;
+  --success: #10b981;
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  max-width: 850px; /* Perfect width for a SaaS tool */
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* --- BRAND HEADER --- */
+.brand-header { text-align: center; margin-bottom: 40px; }
+.brand-name { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; color: var(--dark); line-height: 1.1; }
+.brand-name .accent { color: var(--primary); }
+.brand-tagline { font-size: 1.1rem; color: var(--text-muted); margin-top: 8px; font-weight: 500; }
+
+/* --- NAVIGATION TABS --- */
+.tab-container { display: flex; justify-content: center; margin-bottom: 30px; }
+.tab-menu { display: inline-flex; background: #e2e8f0; padding: 5px; border-radius: 12px; }
+.tab-btn { background: transparent; border: none; padding: 10px 24px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; }
+.tab-btn.active { background: var(--bg-card); color: var(--dark); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+/* --- CARDS & CONTAINERS --- */
+.card { background: var(--bg-card); border-radius: 16px; padding: 24px; margin-bottom: 24px; border: 1px solid var(--border); }
+.shadow-sm { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+.shadow-md { box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
+
+/* --- SEARCH & BULK INPUTS (Fully Fixed) --- */
+.search-box {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.main-input {
+  flex: 1; /* Takes remaining space safely */
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--bg-page);
+}
+
+.main-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+
+.bulk-box { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.main-textarea { width: 100%; min-height: 160px; padding: 16px 20px; border: 1px solid var(--border); border-radius: 12px; font-size: 0.95rem; font-family: inherit; resize: vertical; outline: none; background: var(--bg-page); }
+.main-textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+
+/* --- BUTTONS --- */
+.btn-primary {
+  background: var(--dark);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap; /* CRITICAL: Stops text from squishing */
+  transition: all 0.2s ease;
+}
+.btn-primary:hover:not(:disabled) { background: var(--dark-hover); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.bulk-btn { width: 100%; } /* Makes button full width in bulk mode */
+
+.btn-secondary { width: 100%; background: var(--bg-page); border: 1px solid var(--border); color: var(--dark); padding: 14px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary); background: #eff6ff; }
+
+.btn-success { background: var(--success); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.btn-success:hover { background: #059669; }
+
+/* --- STATUS & ERRORS --- */
+.status-card { text-align: center; padding: 30px; background: white; border-radius: 16px; border: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-bottom: 24px; }
+.error-card { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; padding: 16px; border-radius: 12px; text-align: center; font-weight: 500; margin-bottom: 24px; }
+
+/* --- SPINNER --- */
+.spinner { width: 30px; height: 30px; border: 3px solid #e2e8f0; border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- SINGLE RESULT STYLING --- */
+.result-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 15px; }
+.product-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); margin: 0; line-height: 1.3; }
+.price-badge { background: #ecfdf5; color: var(--success); padding: 8px 16px; border-radius: 8px; font-weight: 800; font-size: 1.2rem; white-space: nowrap; }
+
+.meta-bar { display: flex; gap: 15px; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; font-size: 0.9rem; }
+.meta-item { color: var(--text-muted); }
+.status-success { color: var(--success); font-weight: 600; }
+
+/* --- HERO IMAGE CONTAINER --- */
+.asset-section { margin-bottom: 24px; }
+.hero-frame { position: relative; width: 100%; max-width: 450px; margin: 0 auto 20px auto; background: var(--bg-page); border: 1px solid var(--border); border-radius: 16px; padding: 20px; display: flex; justify-content: center; align-items: center; }
+.hero-image { width: 100%; max-height: 350px; object-fit: contain; border-radius: 8px; }
+.badge-overlay { position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; backdrop-filter: blur(4px); }
+
+/* --- DRAWERS & LINKS --- */
+.drawer-controller { width: 100%; }
+.drawer-content { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; background: var(--bg-page); padding: 16px; border-radius: 12px; border: 1px solid var(--border); }
+.asset-link { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: white; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+.asset-link:hover { border-color: var(--primary); transform: translateX(4px); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+.link-arrow { color: var(--text-muted); font-size: 1.1rem; }
+
+/* --- TABLE STYLING --- */
+.table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.table-title { font-size: 1.2rem; font-weight: 700; color: var(--dark); }
+.table-container { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
+.data-table { width: 100%; border-collapse: collapse; text-align: left; }
+.data-table th { background: var(--bg-page); padding: 16px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+.data-table td { padding: 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.data-table tr:last-child td { border-bottom: none; }
+.cell-target a { color: var(--dark); font-weight: 500; text-decoration: none; }
+.cell-target a:hover { color: var(--primary); text-decoration: underline; }
+
+.pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.asset-pill { background: #eff6ff; color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: 0.2s; }
+.asset-pill:hover { background: var(--primary); color: white; }
+
+/* --- FOOTER --- */
+.brand-footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border); }
+.footer-copyright { font-weight: 700; color: var(--dark); font-size: 0.95rem; margin-bottom: 4px; }
+.footer-version { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+
+/* --- ANIMATIONS --- */
+.slide-down { animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.fade-in { animation: fadeIn 0.4s ease-in forwards; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
